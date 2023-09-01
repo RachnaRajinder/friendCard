@@ -1,0 +1,236 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+@font-face {
+	font-family: pop;
+	src: url(./fonts/Poppins-Medium.ttf);
+}
+body{
+	background-color: rgb(238, 238, 238);
+}
+.main{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: pop;
+	padding: 50px;
+}
+.main .heading{
+	font-size: 25px;
+	margin-bottom: 80px;
+	position: relative;
+}
+.heading span{
+	color: #39add4;
+}
+.heading::after{
+	content: " ";
+	position: absolute;
+	width: 60%;
+	height: 3px;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -5px;
+	background-color: #39add4;
+}
+.container{
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.container .card{
+	width: 230px;
+	height: 350px;
+	position: relative;
+	border-radius: 10px;
+	background-color: #fff;
+	overflow: hidden;
+	box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.37);
+	margin:15px;
+	z-index: 4;
+}
+.card::after{
+	content: " ";
+	width: 100%;
+	height: 40%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #39add4
+}
+.card img{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: fit;
+	transition: .6s;
+	box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.37);
+	z-index: 99;
+}
+.card:hover img{
+	transform: scale(.50) translateY(-120px);
+	border-radius: 10px;
+}
+.card .details{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	padding-bottom: 40px;
+	transform: translateY(100%);
+	transition: .6s;
+}
+.card:hover .details{
+	transform: translateY(0);
+}
+.details h3{
+	font-size: 22px;
+	color: #39add4;
+}
+.details p{
+	font-size: 15px;
+	color: #333;
+	margin-bottom: 7px;
+}
+.details .social-links{
+	display: flex;
+}
+.details .social-links a{
+	width: 30px;
+	height: 30px;
+	margin: 0 5px;
+	border-radius: 50%;
+	color: #333;
+	background-color: rgb(182, 182, 182);
+	text-decoration: none;
+	transition: .6s;
+	display: grid;
+	place-items: center;
+	font-size: 17px;
+}
+.details .social-links a:hover{
+	transform: rotate(360deg);
+	background-color: #39add4;
+	color: #fff;
+}
+
+/*----------Navbar-----------------*/
+nav {
+	width: 100%;
+	top: 0;
+	z-index: 10;
+	background: #39add4;
+	height: 80px;
+	display: grid;
+	align-items: center;
+	padding-inline: 4rem;
+	position: sticky;
+  }
+  
+  nav .navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .search-bar {
+	background: rgb(230, 216, 216);
+	border-radius: 2rem;
+	padding: 0.6rem 1rem;
+  }
+  
+  .search-bar input[type="search"] {
+	background: transparent;
+	color: var(--color-dark);
+	font-size: 0.9rem;
+	width: 30vw;
+	margin-left: 1rem;
+	border: none;
+  }
+  nav .search-bar input[type="search"]::placeholder {
+	color: var(--color-grey);
+	
+  }
+  nav .create {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+  }
+  label.btn.btn-primary {
+	color: white;
+	border: 2px solid white;
+	padding: 8px;
+	border-radius: 1.5em;
+	font-size: 1rem;
+  }
+  .profile-photo {
+	width: 2.7rem;
+	height: 2.7rem;
+	border-radius: 50%;
+	overflow: hidden;
+	cursor: pointer;
+  }
+  img {
+	display: block;
+	width: 100%;
+	height: inherit;
+  }
+  /***********************Media quries for tablet and mobile mode**************/
+@media screen and (max-width: 992) {
+    nav .search-bar {
+        display: none;
+    }
+
+    main .container {
+        grid-template-columns: 0 auto 5rem;
+        gap: 0;
+    }
+
+    main .container .left {
+        grid-column: 3/4;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+}
+/*-----------------------Media Query-----------------------*/
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+
+    main-container {
+        grid-template-columns: 5rem auto 30vw;
+        gap: 1rem;
+    }
+
+    .left {
+        width: 5rem;
+        z-index: 5;
+    }
+
+    main .container .left .profile {
+        display: none;
+    }
+
+    .sidebar h3 {
+        display: none;
+    }
+
+    .left .btn {
+        display: none;
+    }
+}
